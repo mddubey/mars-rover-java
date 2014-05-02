@@ -1,4 +1,4 @@
-package com.tw.mritunjd.marserover;
+package com.tw.mritunjd.marserover.directions;
 
 public class NORTH implements Direction {
     private static final Direction north = new NORTH();
