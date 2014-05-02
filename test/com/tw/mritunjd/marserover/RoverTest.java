@@ -86,7 +86,7 @@ public class RoverTest {
 
     @Test
     public void xAxisShouldIncreaseByOneOnMoveWhenDirectionIsNorth() {
-        Rover expected = new Rover(3, 2, 'N');
+        Rover expected = new Rover(2, 3, 'N');
         Rover actual = new Rover(2, 2, 'N');
         actual.moveForward();
         assertEquals(expected, actual);
@@ -94,7 +94,7 @@ public class RoverTest {
 
     @Test
     public void xAxisShouldDecreasedByOneOnMoveWhenDirectionIsSouth() {
-        Rover expected = new Rover(1, 2, 'S');
+        Rover expected = new Rover(2, 1, 'S');
         Rover actual = new Rover(2, 2, 'S');
         actual.moveForward();
         assertEquals(expected, actual);
@@ -102,7 +102,7 @@ public class RoverTest {
 
     @Test
     public void yAxisShouldIncreaseByOneOnMoveWhenDirectionIsEast() {
-        Rover expected = new Rover(2, 3, 'E');
+        Rover expected = new Rover(3, 2, 'E');
         Rover actual = new Rover(2, 2, 'E');
         actual.moveForward();
         assertEquals(expected, actual);
@@ -110,7 +110,7 @@ public class RoverTest {
 
     @Test
     public void yAxisShouldDecreasedByOneOnMoveWhenDirectionIsWest() {
-        Rover expected = new Rover(2, 3, 'W');
+        Rover expected = new Rover(1, 4, 'W');
         Rover actual = new Rover(2, 4, 'W');
         actual.moveForward();
         assertEquals(expected, actual);

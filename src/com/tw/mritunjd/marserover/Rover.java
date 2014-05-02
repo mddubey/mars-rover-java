@@ -1,5 +1,7 @@
 package com.tw.mritunjd.marserover;
 
+import com.tw.mritunjd.marserover.directions.*;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -23,6 +25,18 @@ public class Rover {
         this.y_axis = y_axis;
     }
 
+    public void setDirection(Direction direction) {
+        this.direction = direction;
+    }
+
+    public void changeX_axisAfterMove(int changeInX) {
+        this.x_axis = this.x_axis + changeInX;
+    }
+
+    public void changeY_axisAfterMove(int changeInY) {
+        this.y_axis = this.y_axis + changeInY;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -36,30 +50,24 @@ public class Rover {
         return direction.equals(rover.direction);
     }
 
+    @Override
+    public String toString() {
+        return "Rover{" +
+                "direction=" + direction +
+                ", x_axis=" + x_axis +
+                ", y_axis=" + y_axis +
+                '}';
+    }
+
     public void turnLeft() {
-        this.direction = this.direction.turnLeft();
+        this.direction.turnLeft(this);
     }
 
     public void turnRight() {
-        this.direction = this.direction.turnRight();
+        this.direction.turnRight(this);
     }
 
     public void moveForward() {
-        if (this.direction == NORTH.getInstance()) {
-            this.x_axis += 1;
-            return;
-        }
-        if (this.direction == SOUTH.getInstance()) {
-            this.x_axis -= 1;
-            return;
-        }
-        if (this.direction == WEST.getInstance()) {
-            this.y_axis -= 1;
-            return;
-        }
-        if (this.direction == EAST.getInstance()) {
-            this.y_axis += 1;
-            return;
-        }
+        this.direction.moveForward(this);
     }
 }

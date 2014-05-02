@@ -1,7 +1,6 @@
 package com.tw.mritunjd.marserover.directions;
 
-import com.tw.mritunjd.marserover.NORTH;
-import com.tw.mritunjd.marserover.SOUTH;
+import com.tw.mritunjd.marserover.Rover;
 
 public class EAST implements Direction {
     private static final Direction east = new EAST();
@@ -14,12 +13,17 @@ public class EAST implements Direction {
     }
 
     @Override
-    public Direction turnLeft() {
-        return NORTH.getInstance();
+    public void turnLeft(Rover rover) {
+        rover.setDirection(NORTH.getInstance());
     }
 
     @Override
-    public Direction turnRight() {
-        return SOUTH.getInstance();
+    public void turnRight(Rover rover) {
+        rover.setDirection(SOUTH.getInstance());
+    }
+
+    @Override
+    public void moveForward(Rover rover) {
+        rover.changeX_axisAfterMove(1);
     }
 }

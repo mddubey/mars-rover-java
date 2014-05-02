@@ -1,6 +1,10 @@
 package com.tw.mritunjd.marserover.directions;
 
+import com.tw.mritunjd.marserover.Rover;
+
 public interface Direction {
-    public Direction turnLeft();
-    public Direction turnRight();
+    public void turnLeft(Rover rover);
+    public void turnRight(Rover rover);
+
+    void moveForward(Rover rover);
 }
