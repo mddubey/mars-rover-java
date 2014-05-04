@@ -2,6 +2,12 @@ package com.tw.mritunjd.marserover;
 
 import com.tw.mritunjd.marserover.factory.MarsRoverFactory;
 
+import java.util.HashMap;
+import java.util.Map;
+
+interface MoveAction {
+    void makeRoverMoved();
+}
 
 public class Plateau {
     private Coordinates lowerLeftCoordinate;
@@ -20,15 +26,39 @@ public class Plateau {
     }
 
     public void explorePlateau(String instructionSeries) {
+        Map<Character, MoveAction> instructionMap = new HashMap();
+        setMoveActions(instructionMap);
+
         for (int i = 0; i < instructionSeries.length(); i++) {
             Character instruction = instructionSeries.charAt(i);
-            if (instruction == 'L')
-                rover.turnLeft();
-            else if (instruction == 'R')
-                rover.turnRight();
-            else if (instruction == 'M')
-                rover.moveForward();
+            instructionMap.get(instruction).makeRoverMoved();
         }
+    }
+
+    private void setMoveActions(Map<Character, MoveAction> instructionMap) {
+        MoveAction turnLeftAction = new MoveAction() {
+            @Override
+            public void makeRoverMoved() {
+                rover.turnLeft();
+            }
+        };
+
+        MoveAction turnRightAction = new MoveAction() {
+            @Override
+            public void makeRoverMoved() {
+                rover.turnRight();
+            }
+        };
+
+        MoveAction moveForwardAction = new MoveAction() {
+            @Override
+            public void makeRoverMoved() {
+                rover.moveForward();
+            }
+        };
+        instructionMap.put('R', turnRightAction);
+        instructionMap.put('L', turnLeftAction);
+        instructionMap.put('M', moveForwardAction);
     }
 
     @Override
