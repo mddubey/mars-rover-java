@@ -9,7 +9,7 @@ public class EAST implements Direction {
         return east;
     }
 
-    public EAST() {
+    private EAST() {
     }
 
     @Override
