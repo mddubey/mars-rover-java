@@ -2,6 +2,7 @@ package com.tw.mritunjd.marserover;
 
 import com.tw.mritunjd.marserover.factory.MarsRoverFactory;
 
+
 public class Plateau {
     private Coordinates lowerLeftCoordinate;
     private Coordinates upperRightCoordinates;
@@ -16,6 +17,18 @@ public class Plateau {
 
     public void initRover(int position_X_Axis, int position_Y_Axis, Character directionSymbol) {
         rover = factory.createRover(position_X_Axis, position_Y_Axis, directionSymbol);
+    }
+
+    public void explorePlateau(String instructionSeries) {
+        for (int i = 0; i < instructionSeries.length(); i++) {
+            Character instruction = instructionSeries.charAt(i);
+            if (instruction == 'L')
+                rover.turnLeft();
+            else if (instruction == 'R')
+                rover.turnRight();
+            else if (instruction == 'M')
+                rover.moveForward();
+        }
     }
 
     @Override
