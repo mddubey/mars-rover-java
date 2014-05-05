@@ -34,7 +34,7 @@ public class PlateauTest {
     }
 
     @Test
-    public void shouldTurnRoverLeftWhenInstructionIsL() {
+    public void shouldInstructRoverToTurnLeftWhenInstructionIsL() {
         StubFactory factory = new StubFactory();
         Plateau plateau = new Plateau(5, 5, factory);
         String instructions = "LLLLLL";
@@ -44,7 +44,7 @@ public class PlateauTest {
     }
 
     @Test
-    public void shouldTurnRoverRightWhenInstructionIsR() {
+    public void shouldInstructRoverToTurnRightWhenInstructionIsR() {
         StubFactory factory = new StubFactory();
         Plateau plateau = new Plateau(5, 5, factory);
         String instructions = "RRRRRR";
@@ -54,7 +54,7 @@ public class PlateauTest {
     }
 
     @Test
-    public void shouldMoveRoverForwardWhenInstructionIsM() {
+    public void shouldInstructRoverToMoveForwardWhenInstructionIsM() {
         StubFactory factory = new StubFactory();
         Plateau plateau = new Plateau(5, 5, factory);
         String instructions = "MMMMMM";
@@ -64,7 +64,7 @@ public class PlateauTest {
     }
 
     @Test
-    public void shouldCallRoverToMoveAccordingToInstruction() {
+    public void shouldInstructRoverToMoveAccordingToInstruction() {
         StubFactory factory = new StubFactory();
         Plateau plateau = new Plateau(5, 5, factory);
         String instructions = "LLMMRRLMRMRL";
