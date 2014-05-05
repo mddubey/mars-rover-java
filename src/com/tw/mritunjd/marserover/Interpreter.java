@@ -1,6 +1,5 @@
 package com.tw.mritunjd.marserover;
 
-import com.tw.mritunjd.marserover.directions.SOUTH;
 import com.tw.mritunjd.marserover.factory.MarsRoverFactory;
 
 import java.util.ArrayList;
@@ -17,7 +16,13 @@ public class Interpreter {
 
     public List<String> getInput() {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Inputs for Plateau and rovers:--");
+        System.out.println("Inputs for Plateau and rovers");
+        System.out.println("e.g. \n5 5\n" +
+                "1 2 N\n" +
+                "LMLMLMLMM\n" +
+                "3 3 E\n" +
+                "MMRMMRMRRM\nEND");
+        System.out.println("\nEnter your input:--");
         List<String> inputs = new ArrayList<>();
         while (scanner.hasNext()) {
             String line = scanner.nextLine();
