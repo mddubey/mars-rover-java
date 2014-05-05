@@ -26,4 +26,9 @@ public class EAST implements Direction {
     public void moveForward(Rover rover) {
         rover.changeX_axisAfterMove(1);
     }
+
+    @Override
+    public String toString() {
+        return "E";
+    }
 }
