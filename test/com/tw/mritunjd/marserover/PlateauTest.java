@@ -75,6 +75,15 @@ public class PlateauTest {
         verify(factory.rover,times(4)).turnRight();
     }
 
+    @Test
+    public void shouldAskForTheCurrentLocationOfRover() {
+        StubFactory factory = new StubFactory();
+        Plateau plateau = new Plateau(5, 5, factory);
+        plateau.initRover(1, 1, 'N');
+        plateau.getRoverLocation();
+        verify(factory.rover,times(1)).getLocation();
+    }
+
     private class StubFactory extends MarsRoverFactory {
         public final Rover rover = mock(Rover.class);
 

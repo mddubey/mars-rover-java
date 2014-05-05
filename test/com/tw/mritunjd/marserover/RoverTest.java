@@ -115,4 +115,23 @@ public class RoverTest {
         actual.moveForward();
         assertEquals(expected, actual);
     }
+
+    @Test
+    public void shouldTellCurrentLocation() {
+        String expectedLocation = "2 5 N";
+        Rover rover = new Rover(2, 5, 'N');
+        String actualLocation = rover.getLocation();
+        assertEquals(expectedLocation, actualLocation);
+    }
+
+    @Test
+    public void shouldTellCurrentLocationAfterMove() {
+        String expectedLocation = "2 5 N";
+        Rover rover = new Rover(3, 5, 'S');
+        rover.turnRight();
+        rover.moveForward();
+        rover.turnRight();
+        String actualLocation = rover.getLocation();
+        assertEquals(expectedLocation, actualLocation);
+    }
 }
