@@ -1,5 +1,6 @@
 package com.tw.mritunjd.marserover.cli;
 
+import com.tw.mritunjd.marserover.core.Coordinate;
 import com.tw.mritunjd.marserover.core.Plateau;
 import com.tw.mritunjd.marserover.factory.MarsRoverFactory;
 
@@ -38,7 +39,7 @@ public class Interpreter {
         String[] upperRightCoordinates = inputs.get(0).split(" ");
         int max_x_axis = Integer.parseInt(upperRightCoordinates[0]);
         int max_y_axis = Integer.parseInt(upperRightCoordinates[1]);
-        plateau = this.factory.createPlateau(max_x_axis, max_y_axis, this.factory);
+        plateau = this.factory.createPlateau(new Coordinate(max_x_axis, max_y_axis), this.factory);
         int index = 1;
         System.out.println("Location after exploration:--");
         while (index < inputs.size()) {
@@ -53,5 +54,4 @@ public class Interpreter {
             System.out.println(result);
         }
     }
-
 }

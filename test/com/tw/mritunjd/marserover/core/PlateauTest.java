@@ -13,22 +13,22 @@ public class PlateauTest {
 
     @Test
     public void shouldTellTwoPlateausAreEqual() {
-        Plateau expected = new Plateau(5, 5, new MarsRoverFactory());
-        Plateau actual = new Plateau(5, 5, new MarsRoverFactory());
+        Plateau expected = new Plateau(new Coordinate(5, 5), new MarsRoverFactory());
+        Plateau actual = new Plateau(new Coordinate(5, 5), new MarsRoverFactory());
         assertEquals(expected, actual);
     }
 
     @Test
     public void shouldTellTwoPlateausAreNotEqual() {
-        Plateau expected = new Plateau(5, 5, new MarsRoverFactory());
-        Plateau actual = new Plateau(5, 4, new MarsRoverFactory());
+        Plateau expected = new Plateau(new Coordinate(5, 5), new MarsRoverFactory());
+        Plateau actual = new Plateau(new Coordinate(5, 4), new MarsRoverFactory());
         assertNotSame(expected, actual);
     }
 
     @Test
     public void shouldCreateARover() {
         MarsRoverFactory factory = mock(MarsRoverFactory.class);
-        Plateau plateau = new Plateau(5, 5, factory);
+        Plateau plateau = new Plateau(new Coordinate(5, 5), factory);
         plateau.initRover(2, 2, 'N');
         verify(factory, times(1)).createRover(new Coordinate(2, 2), 'N');
     }
@@ -36,7 +36,7 @@ public class PlateauTest {
     @Test
     public void shouldInstructRoverToTurnLeftWhenInstructionIsL() {
         StubFactory factory = new StubFactory();
-        Plateau plateau = new Plateau(5, 5, factory);
+        Plateau plateau = new Plateau(new Coordinate(5, 5), factory);
         String instructions = "LLLLLL";
         plateau.initRover(1, 1, 'N');
         plateau.explorePlateau(instructions);
@@ -46,7 +46,7 @@ public class PlateauTest {
     @Test
     public void shouldInstructRoverToTurnRightWhenInstructionIsR() {
         StubFactory factory = new StubFactory();
-        Plateau plateau = new Plateau(5, 5, factory);
+        Plateau plateau = new Plateau(new Coordinate(5, 5), factory);
         String instructions = "RRRRRR";
         plateau.initRover(1, 1, 'N');
         plateau.explorePlateau(instructions);
@@ -56,7 +56,7 @@ public class PlateauTest {
     @Test
     public void shouldInstructRoverToMoveForwardWhenInstructionIsM() {
         StubFactory factory = new StubFactory();
-        Plateau plateau = new Plateau(5, 5, factory);
+        Plateau plateau = new Plateau(new Coordinate(5, 5), factory);
         String instructions = "MMMMMM";
         plateau.initRover(1, 1, 'N');
         plateau.explorePlateau(instructions);
@@ -66,7 +66,7 @@ public class PlateauTest {
     @Test
     public void shouldInstructRoverToMoveAccordingToInstruction() {
         StubFactory factory = new StubFactory();
-        Plateau plateau = new Plateau(5, 5, factory);
+        Plateau plateau = new Plateau(new Coordinate(5, 5), factory);
         String instructions = "LLMMRRLMRMRL";
         plateau.initRover(1, 1, 'N');
         plateau.explorePlateau(instructions);
@@ -78,7 +78,7 @@ public class PlateauTest {
     @Test
     public void shouldAskForTheCurrentLocationOfRover() {
         StubFactory factory = new StubFactory();
-        Plateau plateau = new Plateau(5, 5, factory);
+        Plateau plateau = new Plateau(new Coordinate(5, 5), factory);
         plateau.initRover(1, 1, 'N');
         plateau.getRoverLocation();
         verify(factory.rover, times(1)).getLocation();

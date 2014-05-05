@@ -15,9 +15,9 @@ public class Plateau {
     private Rover rover;
     private MarsRoverFactory factory;
 
-    public Plateau(int max_X_Axis, int max_Y_Axis, MarsRoverFactory factory) {
+    public Plateau(Coordinate upperRightCoordinate, MarsRoverFactory factory) {
         this.lowerLeftCoordinate = new Coordinate(0, 0);
-        this.upperRightCoordinate = new Coordinate(max_X_Axis, max_Y_Axis);
+        this.upperRightCoordinate = upperRightCoordinate;
         this.factory = factory;
     }
 

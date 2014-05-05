@@ -10,7 +10,7 @@ public class MarsRoverFactory {
         return new Rover(position, directionSymbol);
     }
 
-    public Plateau createPlateau(int max_x_axis, int max_y_axis, MarsRoverFactory factory) {
-        return new Plateau(max_x_axis, max_y_axis, factory);
+    public Plateau createPlateau(Coordinate coordinate, MarsRoverFactory factory) {
+        return new Plateau(coordinate, factory);
     }
 }
