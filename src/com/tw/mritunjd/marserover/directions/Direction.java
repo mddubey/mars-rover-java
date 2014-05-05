@@ -1,10 +1,10 @@
 package com.tw.mritunjd.marserover.directions;
 
-import com.tw.mritunjd.marserover.Rover;
+import com.tw.mritunjd.marserover.Coordinate;
 
 public interface Direction {
-    public void turnLeft(Rover rover);
-    public void turnRight(Rover rover);
+    public Direction getLeftDirection();
+    public Direction getRightDirection();
 
-    void moveForward(Rover rover);
+    public Coordinate getNextCoordinates(Coordinate coordinate);
 }
