@@ -1,8 +1,8 @@
 package com.tw.mritunjd.marserover.factory;
 
-import com.tw.mritunjd.marserover.Coordinate;
-import com.tw.mritunjd.marserover.Plateau;
-import com.tw.mritunjd.marserover.Rover;
+import com.tw.mritunjd.marserover.core.Coordinate;
+import com.tw.mritunjd.marserover.core.Plateau;
+import com.tw.mritunjd.marserover.core.Rover;
 
 public class MarsRoverFactory {
 

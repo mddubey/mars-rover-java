@@ -1,5 +1,6 @@
 package com.tw.mritunjd.marserover;
 
+import com.tw.mritunjd.marserover.core.Plateau;
 import com.tw.mritunjd.marserover.factory.MarsRoverFactory;
 
 import java.util.ArrayList;

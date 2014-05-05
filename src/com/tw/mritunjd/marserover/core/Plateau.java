@@ -1,4 +1,4 @@
-package com.tw.mritunjd.marserover;
+package com.tw.mritunjd.marserover.core;
 
 import com.tw.mritunjd.marserover.factory.MarsRoverFactory;
 

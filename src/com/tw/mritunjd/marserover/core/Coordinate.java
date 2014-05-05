@@ -1,4 +1,4 @@
-package com.tw.mritunjd.marserover;
+package com.tw.mritunjd.marserover.core;
 
 public class Coordinate {
     private int x_axis;
