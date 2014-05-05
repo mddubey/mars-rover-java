@@ -1,4 +1,4 @@
-package com.tw.mritunjd.marserover;
+package com.tw.mritunjd.marserover.cli;
 
 import com.tw.mritunjd.marserover.core.Plateau;
 import com.tw.mritunjd.marserover.factory.MarsRoverFactory;
