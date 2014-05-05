@@ -7,8 +7,7 @@ import java.util.Map;
 
 public class Rover {
     private Direction direction;
-    private int x_axis;
-    private int y_axis;
+    private Coordinate position;
     private Map<Character, Direction> directionMap = new HashMap<>();
 
     private void setDirections() {
@@ -18,23 +17,10 @@ public class Rover {
         directionMap.put('W', WEST.getInstance());
     }
 
-    public Rover(int x_axis, int y_axis, char dirSymbol) {
+    public Rover(Coordinate coordinate, char dirSymbol) {
         setDirections();
         this.direction = directionMap.get(dirSymbol);
-        this.x_axis = x_axis;
-        this.y_axis = y_axis;
-    }
-
-    public void setDirection(Direction direction) {
-        this.direction = direction;
-    }
-
-    public void changeX_axisAfterMove(int changeInX) {
-        this.x_axis = this.x_axis + changeInX;
-    }
-
-    public void changeY_axisAfterMove(int changeInY) {
-        this.y_axis = this.y_axis + changeInY;
+        this.position = coordinate;
     }
 
     @Override
@@ -44,36 +30,32 @@ public class Rover {
 
         Rover rover = (Rover) o;
 
-        if (x_axis != rover.x_axis) return false;
-        if (y_axis != rover.y_axis) return false;
-        if (direction == null || rover.direction == null) return false;
-        return direction.equals(rover.direction);
+        return direction.equals(rover.direction) && position.equals(rover.position);
     }
 
     @Override
     public String toString() {
         return "Rover{" +
                 "direction=" + direction +
-                ", x_axis=" + x_axis +
-                ", y_axis=" + y_axis +
+                ", position=" + position +
                 '}';
     }
 
     public void turnLeft() {
-        this.direction.turnLeft(this);
+        this.direction = this.direction.getLeftDirection();
     }
 
     public void turnRight() {
-        this.direction.turnRight(this);
+        this.direction = this.direction.getRightDirection();
     }
 
     public void moveForward() {
-        this.direction.moveForward(this);
+        this.position = this.direction.getNextCoordinates(this.position);
     }
 
     public String getLocation() {
         StringBuilder location = new StringBuilder("");
-        location.append(this.x_axis).append(" ").append(this.y_axis).append(" ");
+        location.append(this.position.getX_axis()).append(" ").append(this.position.getY_axis()).append(" ");
         String directionSymbol = this.direction.toString();
         location.append(directionSymbol);
         return location.toString();

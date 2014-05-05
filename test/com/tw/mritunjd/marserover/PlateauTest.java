@@ -30,7 +30,7 @@ public class PlateauTest {
         MarsRoverFactory factory = mock(MarsRoverFactory.class);
         Plateau plateau = new Plateau(5, 5, factory);
         plateau.initRover(2, 2, 'N');
-        verify(factory, times(1)).createRover(2, 2, 'N');
+        verify(factory, times(1)).createRover(new Coordinate(2, 2), 'N');
     }
 
     @Test
@@ -40,7 +40,7 @@ public class PlateauTest {
         String instructions = "LLLLLL";
         plateau.initRover(1, 1, 'N');
         plateau.explorePlateau(instructions);
-        verify(factory.rover,times(6)).turnLeft();
+        verify(factory.rover, times(6)).turnLeft();
     }
 
     @Test
@@ -50,7 +50,7 @@ public class PlateauTest {
         String instructions = "RRRRRR";
         plateau.initRover(1, 1, 'N');
         plateau.explorePlateau(instructions);
-        verify(factory.rover,times(6)).turnRight();
+        verify(factory.rover, times(6)).turnRight();
     }
 
     @Test
@@ -60,7 +60,7 @@ public class PlateauTest {
         String instructions = "MMMMMM";
         plateau.initRover(1, 1, 'N');
         plateau.explorePlateau(instructions);
-        verify(factory.rover,times(6)).moveForward();
+        verify(factory.rover, times(6)).moveForward();
     }
 
     @Test
@@ -70,9 +70,9 @@ public class PlateauTest {
         String instructions = "LLMMRRLMRMRL";
         plateau.initRover(1, 1, 'N');
         plateau.explorePlateau(instructions);
-        verify(factory.rover,times(4)).turnLeft();
-        verify(factory.rover,times(4)).moveForward();
-        verify(factory.rover,times(4)).turnRight();
+        verify(factory.rover, times(4)).turnLeft();
+        verify(factory.rover, times(4)).moveForward();
+        verify(factory.rover, times(4)).turnRight();
     }
 
     @Test
@@ -81,14 +81,14 @@ public class PlateauTest {
         Plateau plateau = new Plateau(5, 5, factory);
         plateau.initRover(1, 1, 'N');
         plateau.getRoverLocation();
-        verify(factory.rover,times(1)).getLocation();
+        verify(factory.rover, times(1)).getLocation();
     }
 
     private class StubFactory extends MarsRoverFactory {
         public final Rover rover = mock(Rover.class);
 
         @Override
-        public Rover createRover(int position_x_axis, int position_y_axis, Character directionSymbol) {
+        public Rover createRover(Coordinate position, Character directionSymbol) {
             return rover;
         }
     }
