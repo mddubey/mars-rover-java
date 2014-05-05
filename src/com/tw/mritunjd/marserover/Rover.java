@@ -70,4 +70,12 @@ public class Rover {
     public void moveForward() {
         this.direction.moveForward(this);
     }
+
+    public String getLocation() {
+        StringBuilder location = new StringBuilder("");
+        location.append(this.x_axis).append(" ").append(this.y_axis).append(" ");
+        String directionSymbol = this.direction.toString();
+        location.append(directionSymbol);
+        return location.toString();
+    }
 }
