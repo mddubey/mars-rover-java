@@ -74,4 +74,8 @@ public class Plateau {
                 && upperRightCoordinates.equals(plateau.upperRightCoordinates);
 
     }
+
+    public String getRoverLocation() {
+        return this.rover.getLocation();
+    }
 }
