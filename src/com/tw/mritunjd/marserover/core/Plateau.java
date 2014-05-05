@@ -27,7 +27,7 @@ public class Plateau {
     }
 
     public void explorePlateau(String instructionSeries) {
-        Map<Character, MoveAction> instructionMap = new HashMap();
+        Map<Character, MoveAction> instructionMap = new HashMap<>();
         setMoveActions(instructionMap);
 
         for (int i = 0; i < instructionSeries.length(); i++) {
