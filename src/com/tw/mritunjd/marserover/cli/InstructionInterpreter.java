@@ -2,14 +2,13 @@ package com.tw.mritunjd.marserover.cli;
 
 import com.tw.mritunjd.marserover.core.Movable;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 public class InstructionInterpreter {
     private List<Movable> movables;
-    private Map<Character, MoveAction> actionMap = new HashMap();
+    private Map<Character, MoveAction> actionMap = new HashMap<>();
 
     public InstructionInterpreter(List<Movable> movables) {
         this.movables = movables;
