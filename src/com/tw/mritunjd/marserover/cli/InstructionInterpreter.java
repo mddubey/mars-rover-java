@@ -12,10 +12,7 @@ public class InstructionInterpreter {
     private Map<Character, MoveAction> actionMap = new HashMap();
 
     public InstructionInterpreter(List<Movable> movables) {
-        this.movables = new ArrayList<>();
-        for (Movable movable : movables) {
-            this.movables.add(movable);
-        }
+        this.movables = movables;
         setMoveActions(actionMap);
     }
 
