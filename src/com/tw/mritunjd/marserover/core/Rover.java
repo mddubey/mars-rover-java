@@ -5,7 +5,7 @@ import com.tw.mritunjd.marserover.directions.*;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Rover {
+public class Rover implements Movable {
     private Direction direction;
     private Coordinate position;
     private Map<Character, Direction> directionMap = new HashMap<>();
