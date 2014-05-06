@@ -8,6 +8,7 @@ import java.util.Map;
 public class Rover implements Movable {
     private Direction direction;
     private Coordinate position;
+    public String instructionSeries;
     private Map<Character, Direction> directionMap = new HashMap<>();
 
     private void setDirections() {
@@ -29,7 +30,7 @@ public class Rover implements Movable {
         if (o == null || getClass() != o.getClass()) return false;
 
         Rover rover = (Rover) o;
-
+        if (instructionSeries != null ? !instructionSeries.equals(rover.instructionSeries) : rover.instructionSeries != null) return false;
         return direction.equals(rover.direction) && position.equals(rover.position);
     }
 
@@ -59,5 +60,15 @@ public class Rover implements Movable {
         String directionSymbol = this.direction.toString();
         location.append(directionSymbol);
         return location.toString();
+    }
+
+    @Override
+    public void setInstructions(String instructionSeries) {
+        this.instructionSeries = instructionSeries;
+    }
+
+    @Override
+    public String getInstructions() {
+        return this.instructionSeries;
     }
 }
